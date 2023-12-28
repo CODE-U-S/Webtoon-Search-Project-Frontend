@@ -1,0 +1,46 @@
+.checkbox-wrapper:last-child {
+  margin-left: 2.5vmin;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6vmin;
+  min-width: 1rem;
+  height: 1.6vmin;
+  min-height: 1rem;
+  border-radius: 0.15em;
+  margin-right: 0.5vmin;
+  border: 0.15em solid #af2525;
+  outline: none;
+  cursor: pointer;
+}
+
+input.checked {
+  background-color: #af2525;
+  position: relative;
+}
+
+input.checked::before {
+  content: "✔";
+  font-size: 1.2vmin;
+  color: #fff;
+  position: absolute;
+  right: 0.2vmin;
+  top: -0.2vmin;
+}
+
+@media (max-width: 1000px) {
+  .checkbox-wrapper input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+
+  input.checked::before {
+    top: -0.5vmin;
+    font-size: 0.8rem;
+  }
+
+  span {
+    font-size: 0.8rem;
+  }
+}
