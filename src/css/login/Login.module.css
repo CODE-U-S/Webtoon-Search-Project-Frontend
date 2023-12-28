@@ -1,0 +1,70 @@
+* {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container-login {
+  position: fixed;
+  top: 25%;
+  right: 0;
+  left: 0;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.container-input {
+  margin-top: 3vmin;
+  line-height: 7vmin;
+}
+
+input[type="text"] {
+  width: 40vmin;
+  min-width: 20rem;
+  height: 4.5vmin;
+  min-height: 2.5rem;
+  text-align: left;
+  padding-left: 1.5vmin;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none !important;
+  border: 1.4px solid #af2525;
+}
+
+.container-checkbox {
+  display: inline-flex;
+  margin-top: 1vmin;
+}
+
+.container-button {
+  margin-top: 2vmin;
+}
+
+button {
+  width: 40vmin;
+  min-width: 20rem;
+  height: 4vmin;
+  min-height: 3rem;
+  background-color: #af2525;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 7vmin;
+}
+
+@media (max-width: 1000px), (max-height: 800px) {
+  .container-input {
+    line-height: 3.6rem;
+  }
+
+  input[type="text"] {
+    font-size: 0.8rem;
+  }
+}
