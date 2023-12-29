@@ -6,38 +6,42 @@ import mypage from "../../image/my_page.svg";
 function Navbar() {
   return (
     <div className={styles["container-navbar"]}>
-      <div className={styles["container-logo"]}>
-        <img src={logo} alt="" />
+      <div className={styles["container-left"]}>
+        <div className={styles["container-logo"]}>
+          <img src={logo} alt="" />
+        </div>
+
+        <div className={styles["container-option"]}>
+          <div className={styles["option-webtoon"]}>
+            <button type={"button"} className={styles["webtoon"]}>
+              웹툰
+            </button>
+          </div>
+          <div className={styles["option-webnovel"]}>
+            <button type={"button"} className={styles["webnovel"]}>
+              웹소설
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className={styles["container-option"]}>
-        <div className={styles["option-webtoon"]}>
-          <button type={"button"} className={styles["webtoon"]}>
-            웹툰
+      <div className={styles["container-right"]}>
+        <div className={styles["container-search-box"]}>
+          <input
+            type={"text"}
+            className={styles["search-box"]}
+            placeholder="제목/작가명으로 검색할 수 있습니다."
+          />
+        </div>
+
+        <div className={styles["container-my"]}>
+          <button type={"button"} className={styles["favorite"]}>
+            <img src={favorite} alt="" />
+          </button>
+          <button type={"button"} className={styles["mypage"]}>
+            <img src={mypage} alt="" />
           </button>
         </div>
-        <div className={styles["option-webnovel"]}>
-          <button type={"button"} className={styles["webnovel"]}>
-            웹소설
-          </button>
-        </div>
-      </div>
-
-      <div className={styles["container-search-box"]}>
-        <input
-          type={"text"}
-          className={styles["search-box"]}
-          placeholder="제목/작가명으로 검색할 수 있습니다."
-        />
-      </div>
-
-      <div className={styles["container-my"]}>
-        <button type={"button"} className={styles["favorite"]}>
-          <img src={favorite} alt="" />
-        </button>
-        <button type={"button"} className={styles["mypage"]}>
-          <img src={mypage} alt="" />
-        </button>
       </div>
       <hr />
     </div>
