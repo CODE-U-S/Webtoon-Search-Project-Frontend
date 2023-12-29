@@ -21,60 +21,62 @@ img {
 
 .container-navbar {
   margin-top: 4vmin;
-  margin-left: 15%;
+  margin-left: 8vmin;
 }
 
 .container-logo {
+  width: 16vmin;
+}
+
+.container-left {
   display: inline-flex;
-  width: 13vmin;
-  margin-left: 4vmin;
+}
+
+.container-right {
+  display: inline-flex;
+  position: absolute;
+  right: 0;
+  margin-right: 3vmin;
 }
 
 .container-option {
   display: inline-flex;
-  margin-left: 5vmin;
-}
-
-.option-webnovel {
   margin-left: 3vmin;
 }
 
 .webtoon {
-  font-size: 1.8vmin;
-  font-weight: 900;
+  font-size: 2.3vmin;
+  font-weight: 600;
 }
 
 .webnovel {
-  font-size: 1.8vmin;
-}
-
-.container-search-box {
-  display: inline-flex;
-  position: absolute;
-  right: 23%;
+  font-size: 2.3vmin;
+  margin-left: 3vmin;
+  color: #bcbcbc;
 }
 
 .search-box {
-  width: 30vmin;
+  width: 25vmin;
+  min-width: 7rem;
   height: 3vmin;
-  min-height: 1.2rem;
-  border-radius: 20px;
+  min-height: 1.25rem;
+  border-radius: 25px;
   border: 1px solid gray;
   padding-left: 1vmin;
-  font-size: 1vmin;
+  font-size: 1.1vmin;
 }
 
 .container-my {
-  display: inline-flex;
-  position: absolute;
-  right: 17%;
+  margin-left: 3vmin;
   margin-top: 0.5vmin;
 }
 
 .favorite,
 .mypage {
   width: 2.5vmin;
+  min-width: 1.4rem;
   height: 2vmin;
+  min-height: 0.8rem;
   margin-right: 2vmin;
 }
 
@@ -84,29 +86,17 @@ hr {
 }
 
 @media (max-width: 1000px), (max-height: 800px) {
-  .container-logo {
-    width: 7rem;
-  }
-
-  .webtoon {
-    font-size: 0.9rem;
-  }
-
-  .webnovel {
-    font-size: 0.9rem;
-  }
-
   .search-box {
-    width: 10rem;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  .container-logo {
+    height: 3.5vmin;
   }
 }
 
-@media (max-width: 1200px) {
-  .container-navbar {
-    margin-left: 5%;
-  }
-  .container-my {
-    right: 12%;
+@media (max-width: 600px) {
+  .container-logo {
+    height: 2vmin;
   }
 }
