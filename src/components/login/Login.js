@@ -20,8 +20,8 @@ function Login() {
       </div>
 
       <div className={styles["container-checkbox"]}>
-        <Checkbox label="자동 로그인" checked={true} />
-        <Checkbox label="아이디 저장" checked={true} />
+        <Checkbox label="자동 로그인" checked={false} />
+        <Checkbox label="아이디 저장" checked={false} />
       </div>
 
       <div className={styles["container-button"]}>
