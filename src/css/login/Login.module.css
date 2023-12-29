@@ -29,6 +29,17 @@
   font-size: 1rem;
 }
 
+.container-eye {
+  margin-top: -4.4vmin;
+  margin-bottom: 3.5vmin;
+  margin-left: 36vmin;
+}
+
+.eye {
+  width: 2vmin;
+  height: 2vmin;
+}
+
 .container-checkbox {
   display: inline-flex;
   margin-top: 1vmin;
@@ -92,6 +103,16 @@
   .find-pw,
   .sign-up {
     font-size: 0.75rem;
+  }
+
+  .container-eye {
+    margin-left: 18rem;
+    margin-top: -2.2rem;
+  }
+
+  .eye {
+    width: 2rem;
+    height: 1rem;
   }
 
   .sns-kakao,
