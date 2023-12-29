@@ -23,7 +23,13 @@ function Login() {
       </div>
 
       <div className={styles["container-button"]}>
-        <button>Login</button>
+        <button type={"submit"}>Login</button>
+      </div>
+
+      <div className={styles["container-find"]}>
+        <button type={"button"}>아이디 찾기</button>
+        <button type={"button"}>비밀번호 찾기</button>
+        <button type={"button"}>회원가입</button>
       </div>
     </div>
   );

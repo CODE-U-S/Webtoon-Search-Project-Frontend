@@ -48,7 +48,7 @@ input:focus {
   margin-top: 2vmin;
 }
 
-button {
+button[type="submit"] {
   width: 40vmin;
   min-width: 20rem;
   height: 4vmin;
