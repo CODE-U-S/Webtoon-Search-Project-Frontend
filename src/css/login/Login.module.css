@@ -1,10 +1,5 @@
-* {
-  text-align: center;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .container-login {
+  text-align: center;
   position: fixed;
   top: 24%;
   right: 0;
@@ -21,7 +16,8 @@
   line-height: 7vmin;
 }
 
-input[type="text"] {
+.id-box,
+.pw-box {
   width: 40vmin;
   min-width: 20rem;
   height: 4.5vmin;
@@ -31,11 +27,6 @@ input[type="text"] {
   border-radius: 8px;
   border: 1px solid gray;
   font-size: 1rem;
-}
-
-input:focus {
-  outline: none !important;
-  border: 1.4px solid #af2525;
 }
 
 .container-checkbox {
@@ -48,7 +39,7 @@ input:focus {
   margin-top: 2vmin;
 }
 
-button[type="submit"] {
+.login-button {
   width: 40vmin;
   min-width: 20rem;
   height: 4.5vmin;
@@ -58,26 +49,22 @@ button[type="submit"] {
   border: 0;
   border-radius: 8px;
   margin-top: 7vmin;
+  cursor: pointer;
 }
 
 .container-find {
   margin-top: 1.5vmin;
 }
 
-button[type="button"] {
-  background-color: transparent;
-  border: 0;
+.find-id,
+.find-pw,
+.sign-up {
   margin-right: 6vmin;
   font-size: 1.15vmin;
 }
 
-button[type="button"]:nth-of-type(1) {
+.find-id {
   margin-left: 5vmin;
-}
-
-img {
-  width: 100%;
-  height: 100%;
 }
 
 .container-sns {
@@ -87,7 +74,8 @@ img {
 .sns-kakao,
 .sns-google {
   width: 4vmin;
-  margin-left: 3vmin;
+  margin-right: 5vmin;
+  margin-left: 5vmin;
 }
 
 @media (max-width: 1000px), (max-height: 800px) {
@@ -95,17 +83,21 @@ img {
     line-height: 3.6rem;
   }
 
-  input[type="text"] {
+  .id-box,
+  .pw-box {
     font-size: 0.8rem;
   }
 
-  button[type="button"] {
+  .find-id,
+  .find-pw,
+  .sign-up {
     font-size: 0.75rem;
   }
 
   .sns-kakao,
   .sns-google {
     width: 2.2rem;
-    margin-left: 3rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
 }
