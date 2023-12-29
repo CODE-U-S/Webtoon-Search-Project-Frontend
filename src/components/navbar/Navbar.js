@@ -1,5 +1,7 @@
 import styles from "../../css/navbar/Navbar.module.css";
 import logo from "../../image/logo.svg";
+import favorite from "../../image/favorite.svg";
+import mypage from "../../image/my_page.svg";
 
 function Navbar() {
   return (
@@ -28,6 +30,16 @@ function Navbar() {
           placeholder="제목/작가명으로 검색할 수 있습니다."
         />
       </div>
+
+      <div className={styles["container-my"]}>
+        <button type={"button"} className={styles["favorite"]}>
+          <img src={favorite} alt="" />
+        </button>
+        <button type={"button"} className={styles["mypage"]}>
+          <img src={mypage} alt="" />
+        </button>
+      </div>
+      <hr />
     </div>
   );
 }
