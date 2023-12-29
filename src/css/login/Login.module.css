@@ -48,16 +48,31 @@ input:focus {
   margin-top: 2vmin;
 }
 
-button {
+button[type="submit"] {
   width: 40vmin;
   min-width: 20rem;
-  height: 4vmin;
+  height: 4.5vmin;
   min-height: 3rem;
   background-color: #af2525;
   color: white;
   border: 0;
   border-radius: 8px;
   margin-top: 7vmin;
+}
+
+.container-find {
+  margin-top: 1.5vmin;
+}
+
+button[type="button"] {
+  background-color: #fff;
+  border: 0;
+  margin-right: 6vmin;
+  font-size: 1.15vmin;
+}
+
+button[type="button"]:nth-of-type(1) {
+  margin-left: 5vmin;
 }
 
 @media (max-width: 1000px), (max-height: 800px) {
@@ -67,5 +82,9 @@ button {
 
   input[type="text"] {
     font-size: 0.8rem;
+  }
+
+  button[type="button"] {
+    font-size: 0.75rem;
   }
 }
