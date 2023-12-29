@@ -2,6 +2,7 @@ import styles from "../../css/navbar/Navbar.module.css";
 import logo from "../../image/logo.svg";
 import favorite from "../../image/favorite.svg";
 import mypage from "../../image/my_page.svg";
+import { IoIosSearch } from "react-icons/io";
 
 function Navbar() {
   return (
@@ -30,8 +31,12 @@ function Navbar() {
           <input
             type={"text"}
             className={styles["search-box"]}
-            placeholder="제목/작가명으로 검색할 수 있습니다."
+            placeholder="제목/작가명으로 검색"
           />
+        </div>
+
+        <div className={styles["container-search-button"]}>
+          <IoIosSearch className={styles["search-button"]} />
         </div>
 
         <div className={styles["container-my"]}>
