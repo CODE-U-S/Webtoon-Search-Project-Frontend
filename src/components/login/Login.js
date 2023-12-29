@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../../css/login/Login.module.css";
 import Checkbox from "../checkbox/Checkbox";
+import kakao from "../../image/kakao.svg";
+import google from "../../image/google.svg";
 
 function Login() {
   return (
@@ -30,6 +32,16 @@ function Login() {
         <button type={"button"}>아이디 찾기</button>
         <button type={"button"}>비밀번호 찾기</button>
         <button type={"button"}>회원가입</button>
+      </div>
+
+      <div className={styles["container-sns"]}>
+        <button type="button" className={styles["sns-kakao"]}>
+          <img src={kakao} alt="" />
+        </button>
+
+        <button type="button" className={styles["sns-google"]}>
+          <img src={google} alt="" />
+        </button>
       </div>
     </div>
   );

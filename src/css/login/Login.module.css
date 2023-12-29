@@ -6,7 +6,7 @@
 
 .container-login {
   position: fixed;
-  top: 25%;
+  top: 24%;
   right: 0;
   left: 0;
 }
@@ -65,7 +65,7 @@ button[type="submit"] {
 }
 
 button[type="button"] {
-  background-color: #fff;
+  background-color: transparent;
   border: 0;
   margin-right: 6vmin;
   font-size: 1.15vmin;
@@ -73,6 +73,21 @@ button[type="button"] {
 
 button[type="button"]:nth-of-type(1) {
   margin-left: 5vmin;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.container-sns {
+  margin-top: 3.5vmin;
+}
+
+.sns-kakao,
+.sns-google {
+  width: 4vmin;
+  margin-left: 3vmin;
 }
 
 @media (max-width: 1000px), (max-height: 800px) {
