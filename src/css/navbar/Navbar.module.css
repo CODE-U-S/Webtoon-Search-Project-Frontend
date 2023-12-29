@@ -39,6 +39,17 @@ img {
   margin-right: 3vmin;
 }
 
+.container-search-button {
+  margin-top: 0.7vmin;
+  margin-left: -3.5vmin;
+}
+
+.search-button {
+  width: 3vmin;
+  height: 1.7vmin;
+  cursor: pointer;
+}
+
 .container-option {
   display: inline-flex;
   margin-left: 3vmin;
@@ -93,10 +104,23 @@ hr {
   .container-logo {
     height: 3.5vmin;
   }
+
+  .container-search-button {
+    margin-top: 0.5vmin;
+  }
 }
 
 @media (max-width: 600px) {
   .container-logo {
     height: 2vmin;
+  }
+  .container-search-button {
+    margin-top: 0.7vmin;
+    margin-left: -4.4vmin;
+  }
+
+  .search-button {
+    width: 1rem;
+    height: 0.8rem;
   }
 }
