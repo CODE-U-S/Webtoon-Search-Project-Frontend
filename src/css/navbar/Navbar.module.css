@@ -1,0 +1,87 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container-navbar {
+  display: inline-flex;
+  margin-top: 4vmin;
+  margin-left: 15%;
+}
+
+.container-logo {
+  width: 13vmin;
+  margin-left: 4vmin;
+}
+
+.container-option {
+  display: inline-flex;
+  margin-left: 5vmin;
+}
+
+button[type="button"] {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none !important;
+  border: 1.4px solid #af2525;
+}
+
+.option-webnovel {
+  margin-left: 3vmin;
+}
+
+.webtoon {
+  font-size: 1.8vmin;
+  font-weight: 900;
+}
+
+.webnovel {
+  font-size: 1.8vmin;
+}
+
+.container-search-box {
+  position: absolute;
+  left: 60%;
+}
+
+.search-box {
+  width: 24vmin;
+  height: 2.3vmin;
+  border-radius: 20px;
+  border: 1px solid gray;
+  padding-left: 1vmin;
+  font-size: 1vmin;
+}
+
+@media (max-width: 1000px), (max-height: 800px) {
+  .container-logo {
+    width: 7rem;
+  }
+
+  .webtoon {
+    font-size: 0.9rem;
+  }
+
+  .webnovel {
+    font-size: 0.9rem;
+  }
+
+  .container-search-box {
+    margin-top: -0.46vmin;
+  }
+
+  .search-box {
+    height: 1.1rem;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .container-navbar {
+    margin-left: 5%;
+  }
+}
