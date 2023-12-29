@@ -38,11 +38,14 @@ function Login() {
             className={styles["pw-box"]}
           />
         </div>
-        <div className={styles["container-eye"]} onClick={handlePasswordType}>
+        <div className={styles["container-eye"]}>
           {pwType.visible ? (
-            <IoMdEye className={styles["eye"]} />
+            <IoMdEye className={styles["eye"]} onClick={handlePasswordType} />
           ) : (
-            <IoMdEyeOff className={styles["eye"]} />
+            <IoMdEyeOff
+              className={styles["eye"]}
+              onClick={handlePasswordType}
+            />
           )}
         </div>
       </div>
