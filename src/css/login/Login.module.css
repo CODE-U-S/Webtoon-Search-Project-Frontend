@@ -41,6 +41,7 @@ input:focus {
 .container-checkbox {
   display: inline-flex;
   margin-top: 1vmin;
+  letter-spacing: 0.1vmin;
 }
 
 .container-button {

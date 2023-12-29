@@ -1,5 +1,5 @@
 .checkbox-wrapper:last-child {
-  margin-left: 2.5vmin;
+  margin-left: 3.5vmin;
 }
 
 .checkbox-wrapper input[type="checkbox"] {
@@ -10,10 +10,11 @@
   height: 1.6vmin;
   min-height: 1rem;
   border-radius: 0.15em;
-  margin-right: 0.5vmin;
+  margin-right: 0.7vmin;
   border: 0.15em solid #af2525;
   outline: none;
   cursor: pointer;
+  margin-bottom: -0.25vmin;
 }
 
 input.checked {
@@ -30,7 +31,7 @@ input.checked::before {
   top: -0.2vmin;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px), (max-height: 800px) {
   .checkbox-wrapper input[type="checkbox"] {
     margin-right: 0.5rem;
   }
