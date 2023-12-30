@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../../css/auth/Login.module.css";
 import Checkbox from "../checkbox/Checkbox";
 import Password from "./Password";
 
 function Login() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles["container-login"]}>
       <div className={styles["container-header"]}>
@@ -34,7 +37,11 @@ function Login() {
       </div>
 
       <div className={styles["container-find"]}>
-        <button type={"button"} className={styles["find-id"]}>
+        <button
+          type={"button"}
+          className={styles["find-id"]}
+          onClick={() => navigate("/login/find_id")}
+        >
           아이디 찾기
         </button>
         <button type={"button"} className={styles["find-pw"]}>
