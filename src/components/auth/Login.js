@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../css/login/Login.module.css";
+import styles from "../../css/auth/Login.module.css";
 import Checkbox from "../checkbox/Checkbox";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import kakao from "../../image/kakao.svg";

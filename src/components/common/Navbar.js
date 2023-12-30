@@ -1,4 +1,4 @@
-import styles from "../../css/navbar/Navbar.module.css";
+import styles from "../../css/common/Navbar.module.css";
 import logo from "../../image/logo.svg";
 import favorite from "../../image/favorite.svg";
 import mypage from "../../image/my_page.svg";
