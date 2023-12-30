@@ -44,7 +44,11 @@ function Login() {
         >
           아이디 찾기
         </button>
-        <button type={"button"} className={styles["find-pw"]}>
+        <button
+          type={"button"}
+          className={styles["find-pw"]}
+          onClick={() => navigate("/login/find_pw")}
+        >
           비밀번호 찾기
         </button>
         <button type={"button"} className={styles["sign-up"]}>
