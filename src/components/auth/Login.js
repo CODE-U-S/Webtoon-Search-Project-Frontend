@@ -2,8 +2,6 @@ import React from "react";
 import styles from "../../css/auth/Login.module.css";
 import Checkbox from "../checkbox/Checkbox";
 import Password from "./Password";
-import kakao from "../../image/kakao.svg";
-import google from "../../image/google.svg";
 
 function Login() {
   return (
@@ -44,16 +42,6 @@ function Login() {
         </button>
         <button type={"button"} className={styles["sign-up"]}>
           회원가입
-        </button>
-      </div>
-
-      <div className={styles["container-sns"]}>
-        <button type="button" className={styles["sns-kakao"]}>
-          <img src={kakao} alt="" />
-        </button>
-
-        <button type="button" className={styles["sns-google"]}>
-          <img src={google} alt="" />
         </button>
       </div>
     </div>
