@@ -1,0 +1,21 @@
+.container-sns {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 17vmin;
+  text-align: center;
+}
+
+.sns-kakao,
+.sns-google {
+  width: 5vmin;
+  margin-right: 5vmin;
+  margin-left: 5vmin;
+}
+
+@media (max-width: 1000px), (max-height: 800px) {
+  .sns-kakao,
+  .sns-google {
+    width: 3rem;
+  }
+}

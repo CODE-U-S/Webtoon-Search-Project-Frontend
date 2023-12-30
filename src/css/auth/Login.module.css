@@ -16,8 +16,7 @@
   line-height: 7vmin;
 }
 
-.id-box,
-.pw-box {
+.id-box {
   width: 40vmin;
   min-width: 20rem;
   height: 4.5vmin;
@@ -27,18 +26,6 @@
   border-radius: 8px;
   border: 1px solid gray;
   font-size: 1rem;
-}
-
-.container-eye {
-  margin-top: -4.4vmin;
-  margin-bottom: 3.5vmin;
-  margin-left: 36vmin;
-}
-
-.eye {
-  cursor: pointer;
-  width: 2vmin;
-  height: 2vmin;
 }
 
 .container-checkbox {
@@ -79,17 +66,6 @@
   margin-left: 5vmin;
 }
 
-.container-sns {
-  margin-top: 3.5vmin;
-}
-
-.sns-kakao,
-.sns-google {
-  width: 4vmin;
-  margin-right: 5vmin;
-  margin-left: 5vmin;
-}
-
 @media (max-width: 1000px), (max-height: 800px) {
   .container-input {
     line-height: 3.6rem;
@@ -114,12 +90,5 @@
   .eye {
     width: 2rem;
     height: 1rem;
-  }
-
-  .sns-kakao,
-  .sns-google {
-    width: 2.2rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
   }
 }
