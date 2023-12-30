@@ -1,23 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../css/auth/Login.module.css";
 import Checkbox from "../checkbox/Checkbox";
-import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import Password from "./Password";
 import kakao from "../../image/kakao.svg";
 import google from "../../image/google.svg";
 
 function Login() {
-  const [pwType, setPwType] = useState({
-    type: "password",
-    visible: false,
-  });
-
-  const handlePasswordType = (e) => {
-    setPwType(() => {
-      if (!pwType.visible) return { type: "text", visible: true };
-      else return { type: "password", visible: false };
-    });
-  };
-
   return (
     <div className={styles["container-login"]}>
       <div className={styles["container-header"]}>
@@ -32,21 +20,7 @@ function Login() {
             className={styles["id-box"]}
           />
           <br />
-          <input
-            type={pwType.type}
-            placeholder="비밀번호를 입력해주세요"
-            className={styles["pw-box"]}
-          />
-        </div>
-        <div className={styles["container-eye"]}>
-          {pwType.visible ? (
-            <IoMdEye className={styles["eye"]} onClick={handlePasswordType} />
-          ) : (
-            <IoMdEyeOff
-              className={styles["eye"]}
-              onClick={handlePasswordType}
-            />
-          )}
+          <Password content={"비밀번호를 입력해주세요"} />
         </div>
       </div>
 
