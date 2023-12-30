@@ -2,7 +2,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import styles from "../../css/common/Footer.module.css";
 import { jwtDecode } from "jwt-decode";
 
-function GoogleOAuth() {
+function Google() {
   return (
     <div className={styles["sns-google"]}>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
@@ -28,4 +28,4 @@ function handleCredentialResponse(response) {
   console.log(email);
 }
 
-export default GoogleOAuth;
+export default Google;
