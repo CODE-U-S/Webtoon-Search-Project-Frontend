@@ -1,4 +1,4 @@
-.container-login {
+.container-find-id {
   text-align: center;
   position: fixed;
   top: 24%;
@@ -12,11 +12,11 @@
 }
 
 .container-input {
-  margin-top: 3vmin;
+  margin-top: 9vmin;
   line-height: 7vmin;
 }
 
-.id-box {
+.email-box {
   width: 40vmin;
   min-width: 20rem;
   height: 4.5vmin;
@@ -28,17 +28,11 @@
   font-size: 1rem;
 }
 
-.container-checkbox {
-  display: inline-flex;
-  margin-top: 1vmin;
-  letter-spacing: 0.1vmin;
-}
-
 .container-button {
-  margin-top: 9vmin;
+  margin-top: 4vmin;
 }
 
-.login-button {
+.find-id-button {
   width: 41.4vmin;
   min-width: 20.4rem;
   height: 4.5vmin;
@@ -50,48 +44,16 @@
   cursor: pointer;
 }
 
-.container-find {
-  margin-top: 1.5vmin;
-}
-
-.find-id,
-.find-pw,
-.sign-up {
-  margin-right: 6vmin;
-  font-size: 1.15vmin;
-}
-
-.find-id {
-  margin-left: 5vmin;
-}
-
 @media (max-width: 1000px), (max-height: 800px) {
   .header {
     font-size: 1.6rem;
   }
 
   .container-input {
-    line-height: 3.6rem;
+    line-height: 6rem;
   }
 
-  .id-box,
-  .pw-box {
+  .email-box {
     font-size: 0.8rem;
-  }
-
-  .find-id,
-  .find-pw,
-  .sign-up {
-    font-size: 0.75rem;
-  }
-
-  .container-eye {
-    margin-left: 18rem;
-    margin-top: -2.2rem;
-  }
-
-  .eye {
-    width: 2rem;
-    height: 1rem;
   }
 }
