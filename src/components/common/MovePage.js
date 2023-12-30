@@ -4,3 +4,5 @@ function MovePage({ name }) {
   const movePage = useNavigate();
   movePage({ name });
 }
+
+export default MovePage;
