@@ -1,0 +1,38 @@
+.container-group {
+  border: 0;
+  display: flex;
+  margin-left: 3vmin;
+}
+
+.container-group input[type="radio"] {
+  margin-left: 1.3vmin;
+  width: 3vmin;
+  height: 3vmin;
+  position: relative;
+  opacity: 0;
+}
+
+.container-group input[type="radio"] + label {
+  display: block;
+  width: 7vmin;
+  font-size: 2.3vmin;
+  color: #bcbcbc;
+  margin-top: -3.2vmin;
+}
+
+.container-group input[type="radio"]:checked + label {
+  color: black;
+  font-weight: 600;
+}
+
+@media (max-width: 1000px), (max-height: 800px) {
+  .container-group input[type="radio"] + label {
+    margin-top: -1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-group input[type="radio"] + label {
+    margin-top: -0.95rem;
+  }
+}

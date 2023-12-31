@@ -3,6 +3,8 @@ import logo from "../../image/logo.svg";
 import favorite from "../../image/favorite.svg";
 import mypage from "../../image/my_page.svg";
 import { IoIosSearch } from "react-icons/io";
+import RadioGroup from "./RadioGroup";
+import Radio from "./Radio";
 
 function Navbar() {
   return (
@@ -13,16 +15,14 @@ function Navbar() {
         </div>
 
         <div className={styles["container-option"]}>
-          <div className={styles["option-webtoon"]}>
-            <button type={"button"} className={styles["webtoon"]}>
+          <RadioGroup>
+            <Radio name="option-web" value="webtoon" defaultChecked>
               웹툰
-            </button>
-          </div>
-          <div className={styles["option-webnovel"]}>
-            <button type={"button"} className={styles["webnovel"]}>
+            </Radio>
+            <Radio name="option-web" value="webnovel">
               웹소설
-            </button>
-          </div>
+            </Radio>
+          </RadioGroup>
         </div>
       </div>
 
