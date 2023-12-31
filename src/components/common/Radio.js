@@ -1,15 +1,16 @@
 function Radio({ children, value, name, defaultChecked, disabled }) {
   return (
-    <label>
+    <div>
       <input
         type={"radio"}
         value={value}
         name={name}
         defaultChecked={defaultChecked}
         disabled={disabled}
+        id="radio"
       />
-      {children}
-    </label>
+      <label for="radio">{children}</label>
+    </div>
   );
 }
 
