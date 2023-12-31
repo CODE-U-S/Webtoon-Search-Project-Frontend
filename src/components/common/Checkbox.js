@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../css/checkbox/Checkbox.module.css";
+import styles from "../../css/common/Checkbox.module.css";
 
 const Checkbox = ({ id, label, checked, ...props }) => {
   const defaultChecked = checked ? checked : false;

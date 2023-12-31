@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../../css/auth/Login.module.css";
-import Checkbox from "../checkbox/Checkbox";
+import Checkbox from "../common/Checkbox";
 import Password from "./Password";
 
 function Login() {
