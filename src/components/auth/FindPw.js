@@ -3,7 +3,7 @@ import Password from "./Password";
 
 function FindPw() {
   return (
-    <div className={styles["container-find-pw"]}>
+    <form className={styles["container-find-pw"]}>
       <div className={styles["container-header"]}>
         <div className={styles["header"]}>비밀번호 재설정</div>
       </div>
@@ -26,7 +26,7 @@ function FindPw() {
           비밀번호 변경
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 

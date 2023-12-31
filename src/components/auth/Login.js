@@ -8,7 +8,7 @@ function Login() {
   const navigate = useNavigate();
 
   return (
-    <div className={styles["container-login"]}>
+    <form className={styles["container-login"]}>
       <div className={styles["container-header"]}>
         <div className={styles["header"]}>로그인</div>
       </div>
@@ -55,7 +55,7 @@ function Login() {
           회원가입
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
