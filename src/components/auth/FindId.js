@@ -2,7 +2,7 @@ import styles from "../../css/auth/FindId.module.css";
 
 function FindId() {
   return (
-    <div className={styles["container-find-id"]}>
+    <form className={styles["container-find-id"]}>
       <div className={styles["container-header"]}>
         <div className={styles["header"]}>아이디 찾기</div>
       </div>
@@ -20,7 +20,7 @@ function FindId() {
           아이디 찾기
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
