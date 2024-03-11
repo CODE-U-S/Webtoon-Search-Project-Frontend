@@ -22,10 +22,10 @@ const WebToon = () => {
         <Link to='/ridibooks'>
           <StyledButton theme={ThemeMode[0]}>리디북스</StyledButton>
         </Link>
-        <Link to='/misterblue'>
+        <Link to='/webToon/mrblue'>
           <StyledButton theme={ThemeMode[0]}>미스터블루</StyledButton>
         </Link>
-        <Link to='/anitoon'>
+        <Link to='/anytoon'>
           <StyledButton theme={ThemeMode[0]}>애니툰</StyledButton>
         </Link>
       </ButtonContainer>

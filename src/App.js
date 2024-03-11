@@ -5,9 +5,11 @@ import WebToon from './components/WebToon';
 import Favorite from './components/Favorite';
 import Signup from './pages/auth/Signup';
 
-
 import { ThemeProvider } from './context/themeProvider';
 import { GlobalStyle } from './theme/GlobalStyles';
+
+// WebToon
+import mrblue from './pages/webtoon/mrblue';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route exact path="/WebToon" component={WebToon}/>
             <Route exact path="/Favorite" component={Favorite}/>
             <Route exact path="/Signup" component={Signup}/>
+
+            <Route exact path="/webToon/mrblue" component={mrblue}/>
           </Switch>
         </Suspense>
       </ThemeProvider>
