@@ -34,10 +34,10 @@ const Modal = ({ isOpen, onClose }) => {
     isOpen && (
       <ModalOverlay onClick={onClose}>
         <ModalContent ref={modalRef} theme={ThemeMode[0]} onClick={handleToggleModal}>
-          <ThemeToggle toggle={ThemeMode[1]} mode={ThemeMode[0]} /> {/* 테마 토글 버튼 추가 */}
+          <ThemeToggle toggle={ThemeMode[1]} mode={ThemeMode[0]} />
           <h2>모달 제목</h2>
           <p>모달 내용</p>
-          <StyledButton theme={ThemeMode[0]} onClick={onClose}>Close Modal</StyledButton>
+          <StyledButton theme={ThemeMode[0]}>로그아웃</StyledButton>
         </ModalContent>
       </ModalOverlay>
     )
@@ -48,8 +48,8 @@ export default Modal;
 
 const ModalOverlay = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -200px;
+  left: 600px;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0);
@@ -66,6 +66,7 @@ const ModalContent = styled.div`
     props => props.mode === 'dark' ? '0px 5px 10px rgba(40, 40, 40, 1), 0px 2px 4px rgba(40, 40, 40, 1)'
     : '0 5px 10px rgba(100, 100, 100, 0.15), 0 2px 4px rgba(100, 100, 100, 0.15)'
   };
+  border-radius: 20px; // 둥근 모서리를 위한 border-radius 추가
 `;
 
 const StyledButton = styled.button`

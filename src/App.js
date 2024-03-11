@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import WebToon from './components/WebToon';
 import Favorite from './components/Favorite';
+import Signup from './pages/Signup';
 
 
 import { ThemeProvider } from './context/themeProvider';
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/" component={Home}/>
             <Route exact path="/WebToon" component={WebToon}/>
             <Route exact path="/Favorite" component={Favorite}/>
+            <Route exact path="/Signup" component={Signup}/>
           </Switch>
         </Suspense>
       </ThemeProvider>
