@@ -59,9 +59,13 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: ${({ theme }) => theme === 'light' ? '#FFFFFF' : '#1E1E22'};
+  background-color: ${({ theme }) => theme === 'light' ? '#FFFFFF' : '#1E1E23'};
   padding: 20px;
   cursor: default; // 모달 내부를 클릭해도 모달이 닫히지 않도록 합니다.
+  box-shadow: ${
+    props => props.mode === 'dark' ? '0px 5px 10px rgba(40, 40, 40, 1), 0px 2px 4px rgba(40, 40, 40, 1)'
+    : '0 5px 10px rgba(100, 100, 100, 0.15), 0 2px 4px rgba(100, 100, 100, 0.15)'
+  };
 `;
 
 const StyledButton = styled.button`
