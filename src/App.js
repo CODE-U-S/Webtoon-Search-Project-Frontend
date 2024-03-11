@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import WebToon from './components/WebToon';
 import Favorite from './components/Favorite';
-import Signup from './pages/Signup';
+import Signup from './pages/auth/Signup';
 
 
 import { ThemeProvider } from './context/themeProvider';

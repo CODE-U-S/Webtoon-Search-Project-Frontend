@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import AppLayout from '../components/AppLayout';
+import AppLayout from '../../components/AppLayout';
 import { useHistory } from 'react-router-dom'; // React Router의 useHistory를 import합니다.
-import { useTheme } from '../context/themeProvider';
+import { useTheme } from '../../context/themeProvider';
 
 const Signup = () => {
   const ThemeMode = useTheme();
