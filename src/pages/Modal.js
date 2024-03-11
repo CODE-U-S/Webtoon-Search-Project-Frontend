@@ -49,26 +49,29 @@ export default Modal;
 
 const ModalOverlay = styled.div`
   position: fixed;
-  top: -200px;
-  left: 600px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0);
+  top: 70px; /* MyPageIcon 바로 아래에 위치하도록 수정 */
+  right: 20px; /* 페이지 오른쪽에 위치하도록 수정 */
+  width: 300px; /* 모달의 너비 조정 */
+  background-color: transparent; /* 투명한 배경으로 수정 */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end; /* 컨텐츠를 오른쪽에 정렬 */
+  align-items: flex-start; /* 컨텐츠를 위로 정렬 */
+  z-index: 999; /* 다른 요소 위에 표시되도록 z-index 설정 */
 `;
 
 const ModalContent = styled.div`
   background-color: ${({ theme }) => theme === 'light' ? '#FFFFFF' : '#1E1E23'};
   padding: 20px;
-  cursor: default; // 모달 내부를 클릭해도 모달이 닫히지 않도록 합니다.
+  cursor: default;
   box-shadow: ${
     props => props.mode === 'dark' ? '0px 5px 10px rgba(40, 40, 40, 1), 0px 2px 4px rgba(40, 40, 40, 1)'
     : '0 5px 10px rgba(100, 100, 100, 0.15), 0 2px 4px rgba(100, 100, 100, 0.15)'
   };
-  border-radius: 20px; // 둥근 모서리를 위한 border-radius 추가
+  border-radius: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
 `;
+
 
 const StyledButton = styled(Link)`
   display: inline-block; /* Link 컴포넌트는 기본적으로 inline 요소이므로 block 요소로 변경 */
