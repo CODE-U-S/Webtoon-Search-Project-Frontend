@@ -29,7 +29,6 @@ const WebToon = () => {
           <StyledButton theme={ThemeMode[0]}>애니툰</StyledButton>
         </Link>
       </ButtonContainer>
-      <h2>웹툰 페이지</h2>
     </AppLayout>
   )
 }

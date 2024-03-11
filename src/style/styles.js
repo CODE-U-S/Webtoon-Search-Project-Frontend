@@ -21,11 +21,24 @@ export const FlexContainer = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  width: 110px;
-  height: 40px;
-  border-radius: 30px;
-  border: ${props => props.theme === 'light' ? '1px solid #31302E' : '1px solid #bbb'};
-  color:  ${props => props.theme === 'light' ? '#31302E' : '#bbb'};
+  width: 100px;
+  height: 30px;
+  border-radius: 24px;
+  border: ${props => props.theme === 'light' ? '1px solid #4CAF50' : '1px solid #4CAF50'};
+  color: ${props => props.theme === 'light' ? '#4CAF50' : '#fff'};
+  background-color: ${props => props.theme === 'light' ? '#fff' : '#4CAF50'};
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: ${props => props.theme === 'light' ? '#e7e7e7' : '#45a049'};
+    border: 1px solid #45a049;
+    color: ${props => props.theme === 'light' ? '#333' : '#fff'};
+  }
 `;
+
 
 

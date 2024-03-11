@@ -1,38 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTheme } from '../context/themeProvider';
 import AppLayout from './AppLayout';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../context/themeProvider';
+import { StyledButton } from '../style/styles';
 
-const Home = () => {
+const WebToon = () => {
   const ThemeMode = useTheme();
-  const CurrentMode = ThemeMode[0] === 'light' ? '🌝' : '🌚';
-
   return (
     <AppLayout>
-      <h2> 홈이다 {''}
-        <a
-          href="https://github.com/gparkkii/react_darkmode"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          추천웹툰
-        </a> 
-        <br/>
-        <ColoredText>Current mode is {CurrentMode}</ColoredText>
-      </h2>
-      <a
-        href="https://github.com/gparkkii"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        All rights reserved by Ji Yeon Park
-      </a>
+      <ButtonContainer>
+        <Link to='/naver'>
+          <StyledButton theme={ThemeMode[0]}>지금핫한</StyledButton>
+        </Link>
+        <Link to='/kakao'>
+          <StyledButton theme={ThemeMode[0]}>실시간 랭킹</StyledButton>
+        </Link>
+        <Link to='/kakaowebtoon'>
+          <StyledButton theme={ThemeMode[0]}>오늘신작</StyledButton>
+        </Link>
+        <Link to='/ridibooks'>
+          <StyledButton theme={ThemeMode[0]}>이벤트</StyledButton>
+        </Link>
+        <Link to='/misterblue'>
+          <StyledButton theme={ThemeMode[0]}>남성인기</StyledButton>
+        </Link>
+        <Link to='/anitoon'>
+          <StyledButton theme={ThemeMode[0]}>완결추천</StyledButton>
+        </Link>
+      </ButtonContainer>
     </AppLayout>
   )
 }
 
-export default Home;
+export default WebToon;
 
-const ColoredText = styled.span`
-  color: #FF6666;
-`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  & > * {
+    margin: 10px; /* 각 버튼 주변에 공백 추가 */
+  }
+`;
