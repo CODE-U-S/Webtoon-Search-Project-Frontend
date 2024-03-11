@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom"; 
 import styled from "styled-components";
 import { useTheme } from '../context/themeProvider';
 import ThemeToggle from '../theme/ThemeToggle'; // 테마 토글 컴포넌트를 가져옵니다.
@@ -37,7 +38,7 @@ const Modal = ({ isOpen, onClose }) => {
           <ThemeToggle toggle={ThemeMode[1]} mode={ThemeMode[0]} />
           <h2>모달 제목</h2>
           <p>모달 내용</p>
-          <StyledButton theme={ThemeMode[0]}>로그아웃</StyledButton>
+          <StyledButton to="/Signup" theme={ThemeMode[0]}>로그아웃</StyledButton>
         </ModalContent>
       </ModalOverlay>
     )
@@ -69,10 +70,15 @@ const ModalContent = styled.div`
   border-radius: 20px; // 둥근 모서리를 위한 border-radius 추가
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled(Link)`
+  display: inline-block; /* Link 컴포넌트는 기본적으로 inline 요소이므로 block 요소로 변경 */
   width: 240px;
   height: 56px;
   border-radius: 4px;
   border: ${props => props.theme === 'light' ? '1px solid #31302E' : '1px solid #bbb'};
   color:  ${props => props.theme === 'light' ? '#31302E' : '#bbb'};
+  text-align: center;
+  line-height: 56px; /* 버튼의 높이와 가운데 정렬을 위해 line-height 추가 */
+  text-decoration: none; /* Link 컴포넌트에 대해 기본적으로 제공되는 스타일 제거 */
 `;
+

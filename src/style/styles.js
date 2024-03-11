@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { media } from './media_query';
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -28,3 +27,5 @@ export const StyledButton = styled.button`
   border: ${props => props.theme === 'light' ? '1px solid #31302E' : '1px solid #bbb'};
   color:  ${props => props.theme === 'light' ? '#31302E' : '#bbb'};
 `;
+
+
