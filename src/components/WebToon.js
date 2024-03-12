@@ -8,7 +8,6 @@ import { StyledButton } from '../style/styles';
 const WebToon = () => {
   const ThemeMode = useTheme();
   return (
-    <AppLayout>
       <ButtonContainer>
         <Link to='/naver'>
           <StyledButton theme={ThemeMode[0]}>네이버 웹툰</StyledButton>
@@ -29,7 +28,6 @@ const WebToon = () => {
           <StyledButton theme={ThemeMode[0]}>애니툰</StyledButton>
         </Link>
       </ButtonContainer>
-    </AppLayout>
   )
 }
 

@@ -1,19 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import AppLayout from '../../components/AppLayout';
-import { useHistory } from 'react-router-dom'; // React Router의 useHistory를 import합니다.
+
 import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
+import WebToon from '../../components/WebToon';
 
 const Favorite = () => {
   const ThemeMode = useTheme();
   return (
     <AppLayout>
+      <WebToon />
       <h2> Favorite 페이지 임당 </h2>
-      <StyledButton theme={ThemeMode[0]} to='/'>
-        Go back to Home
-      </StyledButton>
     </AppLayout>
   )
 }
