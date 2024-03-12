@@ -1,22 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AppLayout from '../../components/AppLayout';
-
+import axios from 'axios';
 import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
 import WebToon from '../../components/WebToon';
 
 const Favorite = () => {
   const ThemeMode = useTheme();
+  const [webtoons, setWebtoons] = useState([]);
+
+  useEffect(() => {
+    // mrblue 엔드포인트에서 데이터를 가져와서 설정합니다.
+    axios.get('http://localhost:3000/mrblue')
+      .then(response => {
+        setWebtoons(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching webtoons:', error);
+      });
+  }, []);
+
+  // 요일별로 웹툰 목록을 나누는 함수
+  const groupWebtoonsByDay = () => {
+    const groupedWebtoons = {};
+    webtoons.forEach(webtoon => {
+      if (!groupedWebtoons[webtoon.day]) {
+        groupedWebtoons[webtoon.day] = [];
+      }
+      groupedWebtoons[webtoon.day].push(webtoon);
+    });
+    return groupedWebtoons;
+  }
+
+  // 요일별 웹툰 목록을 가져옵니다.
+  const webtoonsByDay = groupWebtoonsByDay();
+
   return (
     <AppLayout>
       <WebToon />
-      <h2> Favorite 페이지 임당 </h2>
+      
+        {Object.keys(webtoonsByDay).map(day => (
+          <div key={day}>
+            <h3>{day}</h3>
+            <WebToonList>
+              {webtoonsByDay[day].map(webtoon => (
+                <WebToonItem key={webtoon.Sequence}>
+                  <Link to={webtoon.href}>
+                    <WebToonImage src={webtoon.imageUrl} alt={webtoon.title} />
+                    <WebToonTitle>{webtoon.title}</WebToonTitle>
+                  </Link>
+                </WebToonItem>
+              ))}
+            </WebToonList>
+          </div>
+        ))}
+      
     </AppLayout>
-  )
+  );
 }
 
 export default Favorite;
+
+const WebToonContainer = styled.div`
+  padding: 20px;
+`;
+
+const WebToonList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const WebToonItem = styled.div`
+  width: 200px;
+  margin: 10px;
+`;
+
+const WebToonImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const WebToonTitle = styled.h4`
+  margin-top: 5px;
+`;
+
 
 const StyledButton = styled(Link)`
   display: inline-block;
