@@ -9,7 +9,10 @@ import { ThemeProvider } from './context/themeProvider';
 import { GlobalStyle } from './theme/GlobalStyles';
 
 // WebToon
-import mrblue from './pages/webtoon/mrblue';
+import MrBlue from './pages/webtoon/MrBlue';
+import AnyToon from './pages/webtoon/AnyToon';
+import RidiBooks from './pages/webtoon/RidiBooks';
+
 
 function App() {
   return (
@@ -23,7 +26,9 @@ function App() {
             <Route exact path="/Favorite" component={Favorite}/>
             <Route exact path="/Signup" component={Signup}/>
 
-            <Route exact path="/webToon/mrblue" component={mrblue}/>
+            <Route exact path="/webToon/MrBlue" component={MrBlue}/>
+            <Route exact path="/webToon/anytoon" component={AnyToon}/>
+            <Route exact path="/webToon/ridibooks" component={RidiBooks}/>
           </Switch>
         </Suspense>
       </ThemeProvider>

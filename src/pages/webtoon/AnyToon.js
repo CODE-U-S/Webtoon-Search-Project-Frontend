@@ -6,13 +6,13 @@ import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
 import WebToon from '../../components/WebToon';
 
-const MrBlue = () => {
+const AnyToon = () => {
   const ThemeMode = useTheme();
   const [webtoons, setWebtoons] = useState([]);
 
   useEffect(() => {
-    // mrblue 엔드포인트에서 데이터를 가져와서 설정합니다.
-    axios.get('http://localhost:3000/mrblue')
+    // AnyToon 엔드포인트에서 데이터를 가져와서 설정합니다.
+    axios.get('http://localhost:3000/any')
       .then(response => {
         setWebtoons(response.data);
       })
@@ -59,7 +59,7 @@ const MrBlue = () => {
   );
 }
 
-export default MrBlue;
+export default AnyToon;
 
 const WebToonContainer = styled.div`
   padding: 20px;
