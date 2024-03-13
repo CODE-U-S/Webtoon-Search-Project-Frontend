@@ -10,3 +10,4 @@
 [테마참고자료] https://velog.io/@gparkkii/reactdarkmode
 
 import axios from 'axios';
+npm install react-slick slick-carousel
