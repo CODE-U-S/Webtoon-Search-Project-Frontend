@@ -12,6 +12,9 @@ import { GlobalStyle } from './theme/GlobalStyles';
 import MrBlue from './pages/webtoon/MrBlue';
 import AnyToon from './pages/webtoon/AnyToon';
 import RidiBooks from './pages/webtoon/RidiBooks';
+import Naver from './pages/webtoon/Naver';
+import KakaoPage from './pages/webtoon/KakaoPage';
+import KakaoWebToon from './pages/webtoon/KakaoWebToon';
 
 
 function App() {
@@ -29,6 +32,9 @@ function App() {
             <Route exact path="/webToon/MrBlue" component={MrBlue}/>
             <Route exact path="/webToon/anytoon" component={AnyToon}/>
             <Route exact path="/webToon/ridibooks" component={RidiBooks}/>
+            <Route exact path="/webToon/naver" component={Naver}/>
+            <Route exact path="/webToon/kakaopage" component={KakaoPage}/>
+            <Route exact path="/webToon/kakaowebtoon" component={KakaoWebToon}/>
           </Switch>
         </Suspense>
       </ThemeProvider>
