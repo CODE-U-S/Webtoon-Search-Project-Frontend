@@ -47,7 +47,7 @@ const Header = () => {
         </RightMenu>
         <LeftMenu>
           <StyledLink to='/' onClick={() => handleSelect('home')} selected={selected === 'home'}>홈</StyledLink>
-          <StyledLink to='/WebToon' onClick={() => handleSelect('webtoon')} selected={selected === 'webtoon'}>웹툰</StyledLink>
+          <StyledLink to='/webToon/ridibooks' onClick={() => handleSelect('webtoon')} selected={selected === 'webtoon'}>웹툰</StyledLink>
           <SearchForm onSubmit={handleSearchSubmit}>
             <SearchInput type="text" placeholder="제목, 작가를 입력하세요." value={searchValue} onChange={handleSearchChange} theme={currentTheme} />
             <SearchIcon>

@@ -12,7 +12,7 @@ const RidiBooks = () => {
 
   useEffect(() => {
     // RidiBooks 엔드포인트에서 데이터를 가져와서 설정합니다.
-    axios.get('http://localhost:3000/ridi')
+    axios.get('http://54.180.24.174:3000/ridi')
       .then(response => {
         setWebtoons(response.data);
       })
@@ -44,11 +44,11 @@ const RidiBooks = () => {
             <h3>{day}</h3>
             <WebToonList>
               {webtoonsByDay[day].map(webtoon => (
-                <WebToonItem key={webtoon.Sequence}>
-                  <Link to={webtoon.href}>
+                <WebToonItem key={webtoon.Sequence} onClick={() => window.location.href = webtoon.href}>
+                  <div>
                     <WebToonImage src={webtoon.imageUrl} alt={webtoon.title} />
                     <WebToonTitle>{webtoon.title}</WebToonTitle>
-                  </Link>
+                  </div>
                 </WebToonItem>
               ))}
             </WebToonList>
@@ -73,6 +73,7 @@ const WebToonList = styled.div`
 const WebToonItem = styled.div`
   width: 200px;
   margin: 10px;
+  cursor: pointer; /* 커서를 포인터로 변경하여 사용자에게 클릭 가능성을 보여줌 */
 `;
 
 const WebToonImage = styled.img`
