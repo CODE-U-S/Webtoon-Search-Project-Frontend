@@ -8,6 +8,7 @@ import { ReactComponent as MyPageDarkIcon } from '../assets/header/my_page_dark.
 import { ReactComponent as FavoriteDarkIcon } from '../assets/header/favorite_dark.svg';
 import { useTheme } from '../context/themeProvider'; 
 import Modal from '../pages/Modal';
+import Search from '../pages/search/Search';
 import { IoIosSearch } from "react-icons/io"; 
 
 const Header = () => {
@@ -37,6 +38,10 @@ const Header = () => {
     console.log('검색어:', searchValue);
   };
 
+  const handleSearchIconClick = () => {
+    openModal(); // 모달 열기
+  };
+
   return (
     <nav>
       <StyledHeader>
@@ -49,7 +54,7 @@ const Header = () => {
           <StyledLink to='/' onClick={() => handleSelect('home')} selected={selected === 'home'}>홈</StyledLink>
           <StyledLink to='/webToon/ridibooks' onClick={() => handleSelect('webtoon')} selected={selected === 'webtoon'}>웹툰</StyledLink>
           <SearchForm onSubmit={handleSearchSubmit}>
-            <SearchInput type="text" placeholder="제목, 작가를 입력하세요." value={searchValue} onChange={handleSearchChange} theme={currentTheme} />
+            <SearchInput type="text" placeholder="제목, 작가를 입력하세요." value={searchValue} onChange={handleSearchChange} theme={currentTheme} onClick={handleSearchIconClick} />
             <SearchIcon>
               <SearchButton type="submit"><IoIosSearch /></SearchButton> 
             </SearchIcon>
@@ -65,6 +70,7 @@ const Header = () => {
         </MyMenu>
       </StyledHeader>
       <Modal isOpen={isModalOpen} onClose={closeModal} /> 
+      <Search isOpen={isModalOpen} onClose={closeModal} /> 
     </nav>
   )
 }
