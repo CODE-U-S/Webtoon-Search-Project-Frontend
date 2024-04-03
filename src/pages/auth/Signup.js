@@ -27,7 +27,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://54.180.24.174:3000/user/signup', formData);
+      const response = await axios.post('http://localhost:3000/user/signup', formData);
       console.log(response.data);
       // 회원가입 성공 시 / 페이지로 이동합니다.
       history.push("/");
