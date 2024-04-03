@@ -6,13 +6,13 @@ import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
 import WebToon from '../../components/WebToon';
 
-const MrBlue = () => {
+const RidiBooks = () => {
   const ThemeMode = useTheme();
   const [webtoons, setWebtoons] = useState([]);
 
   useEffect(() => {
     // mrblue 엔드포인트에서 데이터를 가져와서 설정합니다.
-    axios.get('http://localhost:3000/mrblue')
+    axios.get('http://54.180.24.174:3000/mrblue')
       .then(response => {
         setWebtoons(response.data);
       })
@@ -44,11 +44,11 @@ const MrBlue = () => {
             <h3>{day}</h3>
             <WebToonList>
               {webtoonsByDay[day].map(webtoon => (
-                <WebToonItem key={webtoon.Sequence}>
-                  <Link to={webtoon.href}>
+                <WebToonItem key={webtoon.Sequence} onClick={() => window.location.href = webtoon.href}>
+                  <div>
                     <WebToonImage src={webtoon.imageUrl} alt={webtoon.title} />
                     <WebToonTitle>{webtoon.title}</WebToonTitle>
-                  </Link>
+                  </div>
                 </WebToonItem>
               ))}
             </WebToonList>
@@ -59,7 +59,7 @@ const MrBlue = () => {
   );
 }
 
-export default MrBlue;
+export default RidiBooks;
 
 const WebToonContainer = styled.div`
   padding: 20px;
@@ -73,6 +73,7 @@ const WebToonList = styled.div`
 const WebToonItem = styled.div`
   width: 200px;
   margin: 10px;
+  cursor: pointer; /* 커서를 포인터로 변경하여 사용자에게 클릭 가능성을 보여줌 */
 `;
 
 const WebToonImage = styled.img`
