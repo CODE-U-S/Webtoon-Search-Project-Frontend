@@ -6,7 +6,7 @@ import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
 import WebToon from '../../components/WebToon';
 
-const RidiBooks = () => {
+const Naver = () => {
   const ThemeMode = useTheme();
   const [webtoons, setWebtoons] = useState([]);
 
@@ -59,7 +59,7 @@ const RidiBooks = () => {
   );
 }
 
-export default RidiBooks;
+export default Naver;
 
 const WebToonContainer = styled.div`
   padding: 20px;
