@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/WebToon" component={WebToon}/>
             <Route exact path="/Favorite" component={Favorite}/>
             <Route exact path="/Signup" component={Signup}/>
-            <Route exact path="/content" component={DetailPage}/>
+            <Route exact path="/content/:webtoonId" component={DetailPage}/>
 
             <Route exact path="/webToon/mrblue" component={MrBlue}/>
             <Route exact path="/webToon/anytoon" component={AnyToon}/>
