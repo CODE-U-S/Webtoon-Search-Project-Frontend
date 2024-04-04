@@ -32,7 +32,7 @@ const Signup = () => {
       // 회원가입 성공 시 / 페이지로 이동합니다.
       history.push("/");
     } catch (error) {
-      console.error("Error during signup:", error);
+      //console.error("Error during signup:", error);
       // 회원가입 실패 시 사용자에게 알림을 표시할 수 있습니다.
     }
   };
@@ -77,6 +77,9 @@ const Signup = () => {
   );
 };
 
+export default Signup;
+
+
 const SignupForm = styled.form`
   text-align: center;
 `;
@@ -108,4 +111,3 @@ const SubmitButton = styled.button`
   margin-top: 4vmin;
 `;
 
-export default Signup;
