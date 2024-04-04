@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AppLayout from '../../components/AppLayout';
 import axios from 'axios';
-import { useTheme } from '../../context/themeProvider';
 import { Link } from 'react-router-dom';
 import WebToon from '../../components/WebToon';
 
-const RidiBooks = () => {
-  const ThemeMode = useTheme();
+const MrBlue = () => {
   const [webtoons, setWebtoons] = useState([]);
 
   useEffect(() => {
-    // mrblue 엔드포인트에서 데이터를 가져와서 설정합니다.
     axios.get('http://54.180.24.174:3000/mrblue')
       .then(response => {
         setWebtoons(response.data);
@@ -21,7 +18,6 @@ const RidiBooks = () => {
       });
   }, []);
 
-  // 요일별로 웹툰 목록을 나누는 함수
   const groupWebtoonsByDay = () => {
     const groupedWebtoons = {};
     webtoons.forEach(webtoon => {
@@ -33,37 +29,33 @@ const RidiBooks = () => {
     return groupedWebtoons;
   }
 
-  // 요일별 웹툰 목록을 가져옵니다.
   const webtoonsByDay = groupWebtoonsByDay();
 
   return (
     <AppLayout>
       <WebToon />
-        {Object.keys(webtoonsByDay).map(day => (
-          <div key={day}>
-            <h3>{day}</h3>
-            <WebToonList>
-              {webtoonsByDay[day].map(webtoon => (
-                <WebToonItem key={webtoon.Sequence} onClick={() => window.location.href = webtoon.href}>
+      {Object.keys(webtoonsByDay).map(day => (
+        <div key={day}>
+          <h3>{day}</h3>
+          <WebToonList>
+            {webtoonsByDay[day].map(webtoon => (
+              <WebToonItem key={webtoon.Sequence}>
+                <Link to={`/content/${webtoon.id}`}> {/* content 페이지로 웹툰 아이디를 넘김 */}
                   <div>
                     <WebToonImage src={webtoon.imageUrl} alt={webtoon.title} />
                     <WebToonTitle>{webtoon.title}</WebToonTitle>
                   </div>
-                </WebToonItem>
-              ))}
-            </WebToonList>
-          </div>
-        ))}
-      
+                </Link>
+              </WebToonItem>
+            ))}
+          </WebToonList>
+        </div>
+      ))}
     </AppLayout>
   );
 }
 
-export default RidiBooks;
-
-const WebToonContainer = styled.div`
-  padding: 20px;
-`;
+export default MrBlue;
 
 const WebToonList = styled.div`
   display: flex;
@@ -73,7 +65,7 @@ const WebToonList = styled.div`
 const WebToonItem = styled.div`
   width: 200px;
   margin: 10px;
-  cursor: pointer; /* 커서를 포인터로 변경하여 사용자에게 클릭 가능성을 보여줌 */
+  cursor: pointer;
 `;
 
 const WebToonImage = styled.img`
@@ -83,17 +75,4 @@ const WebToonImage = styled.img`
 
 const WebToonTitle = styled.h4`
   margin-top: 5px;
-`;
-
-
-const StyledButton = styled(Link)`
-  display: inline-block;
-  width: 240px;
-  height: 56px;
-  border-radius: 4px;
-  border: ${props => props.theme === 'light' ? '1px solid #31302E' : '1px solid #bbb'};
-  color:  ${props => props.theme === 'light' ? '#31302E' : '#bbb'};
-  text-align: center;
-  line-height: 56px;
-  text-decoration: none;
 `;
