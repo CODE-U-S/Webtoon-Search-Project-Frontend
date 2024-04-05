@@ -58,7 +58,7 @@ const Signup = () => {
 
         <InputWrapper>
           <InputText
-            content={"이메일을 입력해주세요"}
+            content={"아이디를 입력해주세요"}
             name={"user_id"}
             value={formData.user_id}
             onChange={handleChange}
