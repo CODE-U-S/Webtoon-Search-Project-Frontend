@@ -15,6 +15,7 @@ import RidiBooks from "./pages/webtoon/RidiBooks";
 import Naver from "./pages/webtoon/Naver";
 import KakaoPage from "./pages/webtoon/KakaoPage";
 import KakaoWebToon from "./pages/webtoon/KakaoWebToon";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
         <Suspense fallback={<div>...loading</div>}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/WebToon" component={WebToon} />
-            <Route exact path="/Favorite" component={Favorite} />
-            <Route exact path="/Signup" component={Signup} />
+            <Route exact path="/webtoon" component={WebToon} />
+            <Route exact path="/favorite" component={Favorite} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/content/:webtoonId" component={DetailPage} />
 
             <Route exact path="/webToon/mrblue" component={MrBlue} />
