@@ -7,7 +7,7 @@ import { useTheme } from "../../context/themeProvider";
 import Password from "../../components/auth/Password";
 import InputText from "../../components/auth/InputText";
 
-const Signup = () => {
+function Login() {
   const ThemeMode = useTheme();
   const history = useHistory(); // useHistory를 초기화합니다.
   const [formData, setFormData] = useState({
@@ -24,27 +24,11 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://54.180.24.174:3000/user/signup",
-        formData
-      );
-      console.log(response.data);
-      // 회원가입 성공 시 / 페이지로 이동합니다.
-      history.push("/");
-    } catch (error) {
-      //console.error("Error during signup:", error);
-      // 회원가입 실패 시 사용자에게 알림을 표시할 수 있습니다.
-    }
-  };
-
   return (
     <AppLayout>
-      <SignupForm onSubmit={handleSubmit}>
+      <SignupForm>
         <Header>
-          <Title>회원가입</Title>
+          <Title>로그인</Title>
         </Header>
 
         <InputWrapper>
@@ -66,26 +50,16 @@ const Signup = () => {
         </InputWrapper>
 
         <InputWrapper>
-          <Password
-            content={"비밀번호를 입력해주세요"}
-            name={"password"}
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </InputWrapper>
-        <InputWrapper>
-          <Password content={"비밀번호를 확인해주세요"} />
+          <Password content={"비밀번호를 입력해주세요"} />
         </InputWrapper>
 
         <SubmitButton theme={ThemeMode[0]} type="submit">
-          회원가입
+          로그인
         </SubmitButton>
       </SignupForm>
     </AppLayout>
   );
-};
-
-export default Signup;
+}
 
 const SignupForm = styled.form`
   text-align: center;
@@ -117,3 +91,5 @@ const SubmitButton = styled.button`
   cursor: pointer;
   margin-top: 4vmin;
 `;
+
+export default Login;
