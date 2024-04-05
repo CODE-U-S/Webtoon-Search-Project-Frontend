@@ -1,8 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useTheme } from "../../context/themeProvider";
 
 function Password({ content, name, value, onChange }) {
+  const ThemeMode = useTheme();
+
   const [pwType, setPwType] = useState({
     type: "password",
     visible: false,
@@ -25,6 +28,7 @@ function Password({ content, name, value, onChange }) {
         onChange={onChange}
         placeholder={content}
         required
+        theme={ThemeMode[0]}
       />
 
       <EyeContainer>
@@ -49,6 +53,8 @@ const InputField = styled.input`
   border-radius: 8px;
   border: 1px solid gray;
   font-size: 1rem;
+  background-color: transparent;
+  color: ${(props) => (props.theme === "light" ? "#000" : "#fff")};
 `;
 
 const EyeContainer = styled.div`

@@ -71,13 +71,25 @@ function Login() {
       </SignupForm>
 
       <FindContainer>
-        <FindId type={"button"} onClick={() => history.push("/find_id")}>
+        <FindId
+          type={"button"}
+          onClick={() => history.push("/find_id")}
+          theme={ThemeMode[0]}
+        >
           아이디 찾기
         </FindId>
-        <FindPw type={"button"} onClick={() => history.push("/find_pw")}>
+        <FindPw
+          type={"button"}
+          onClick={() => history.push("/find_pw")}
+          theme={ThemeMode[0]}
+        >
           비밀번호 찾기
         </FindPw>
-        <SignUp type={"button"} onClick={() => history.push("/signup")}>
+        <SignUp
+          type={"button"}
+          onClick={() => history.push("/signup")}
+          theme={ThemeMode[0]}
+        >
           회원가입
         </SignUp>
       </FindContainer>
@@ -129,16 +141,19 @@ const FindId = styled.button`
   margin-right: 6vmin;
   font-size: 1.3vmin;
   margin-left: 5vmin;
+  color: ${(props) => (props.theme === "light" ? "black" : "white")};
 `;
 
 const FindPw = styled.button`
   margin-right: 6vmin;
   font-size: 1.3vmin;
+  color: ${(props) => (props.theme === "light" ? "black" : "white")};
 `;
 
 const SignUp = styled.button`
   margin-right: 6vmin;
   font-size: 1.3vmin;
+  color: ${(props) => (props.theme === "light" ? "black" : "white")};
 `;
 
 export default Login;
