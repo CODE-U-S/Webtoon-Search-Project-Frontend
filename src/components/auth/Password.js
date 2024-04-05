@@ -5,7 +5,6 @@ import { useTheme } from "../../context/themeProvider";
 
 function Password({ content, name, value, onChange }) {
   const ThemeMode = useTheme();
-
   const [pwType, setPwType] = useState({
     type: "password",
     visible: false,

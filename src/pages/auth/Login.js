@@ -33,9 +33,7 @@ function Login() {
         formData
       );
       console.log(response);
-
       localStorage.setItem("userId", formData.user_id);
-
       history.push("/");
     } catch (error) {}
   };
