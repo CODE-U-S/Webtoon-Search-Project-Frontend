@@ -9,6 +9,7 @@ const DetailPage = () => {
   const { webtoonId } = useParams();
   const [webtoonInfo, setWebtoonInfo] = useState(null);
   const [liked, setLiked] = useState(false);
+  const [comment, setComment] = useState('');
 
   useEffect(() => {
     // API 호출 및 데이터 가져오는 부분
@@ -34,29 +35,57 @@ const DetailPage = () => {
     setLiked(!liked);
   };
 
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+
+  const handleSubmitComment = (event) => {
+    event.preventDefault();
+    // 댓글을 처리하는 함수 작성
+    console.log('Submitted comment:', comment);
+    // 댓글 입력 후 초기화
+    setComment('');
+  };
+
   return (
     <AppLayout>
-      <h2>웹툰 상세 페이지</h2>
-      {webtoonInfo ? (
-        <div>
-          <p>웹툰 제목: {webtoonInfo.title}</p>
-          <p>작가: {webtoonInfo.author}</p>
-          <p>장르: {webtoonInfo.genre}</p>
-          <p>링크: <a href={webtoonInfo.href} target="_blank" rel="noopener noreferrer">{webtoonInfo.href}</a></p>
-          <StyledImage src={webtoonInfo.imageUrl} alt={webtoonInfo.title} />
-          <p>요일: {webtoonInfo.day}</p>
-          <p>서비스: {webtoonInfo.service}</p>
-          <p>평점: <StarRating rating={webtoonInfo.rating} /></p>
-          {/* 좋아요 버튼 */}
-          <LikeButton liked={liked} onClick={handleLike}>
-            {liked ? '❤️' : '🤍'}
-          </LikeButton>
-        </div>
-      ) : (
-        <div>
-          <p>웹툰 정보를 불러오는 중입니다...</p>
-        </div>
+      {webtoonInfo && (
+        <DetailContainer>
+          <ImageContainer>
+            <StyledImage src={webtoonInfo.imageUrl} alt={webtoonInfo.title} />
+          </ImageContainer>
+          <InfoContainer>
+            <h2>{webtoonInfo.title}</h2>
+            <p><strong>작가:</strong> {webtoonInfo.author}</p>
+            <p><strong>장르:</strong> {webtoonInfo.genre}</p>
+            <p><strong>요일:</strong> {webtoonInfo.day}</p>
+            <p><strong>서비스:</strong> {webtoonInfo.service}</p>
+            <p><strong>평점:</strong> <StarRating rating={webtoonInfo.rating} /></p>
+            <p><strong>링크:</strong> <a href={webtoonInfo.href} target="_blank" rel="noopener noreferrer">{webtoonInfo.href}</a></p>
+            {/* 좋아요 버튼 */}
+            <LikeButton liked={liked} onClick={handleLike}>
+              {liked ? '❤️' : '🤍'}
+            </LikeButton>
+          </InfoContainer>
+        </DetailContainer>
       )}
+      {!webtoonInfo && (
+        <p>웹툰 정보를 불러오는 중입니다...</p>
+      )}
+      <CommentSection>
+        <h3>댓글</h3>
+        <CommentForm onSubmit={handleSubmitComment}>
+          <textarea
+            value={comment}
+            onChange={handleCommentChange}
+            placeholder="댓글을 입력해주세요..."
+            rows={4}
+          />
+          <SubmitButton type="submit">댓글 작성</SubmitButton>
+        </CommentForm>
+        {/* 댓글 목록 */}
+        {/* 댓글 목록이 있다면 여기에 표시 */}
+      </CommentSection>
       <Link to='/'>
         <StyledButton theme={ThemeMode[0]}>
           홈으로 돌아가기
@@ -104,3 +133,37 @@ const StarRating = ({ rating }) => {
 const Star = styled.span`
   color: ${props => props.filled ? 'yellow' : 'grey'};
 `;
+
+const DetailContainer = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+  margin-right: 20px;
+`;
+
+const InfoContainer = styled.div`
+  flex: 3;
+`;
+
+const CommentSection = styled.div`
+  padding: 8px 32px 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: transparent;
+  flex: 1;
+  color: ${({ theme }) => (theme === 'dark' ? '#fff' : '#000')};
+`;
+
+const CommentForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SubmitButton = styled.button`
+  align-self: flex-end;
+  margin-top: 10px;
+`;
+
