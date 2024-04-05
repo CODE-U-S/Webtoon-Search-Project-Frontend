@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
-function Password({ content }) {
+function Password({ content, name, value, onChange }) {
   const [pwType, setPwType] = useState({
     type: "password",
     visible: false,
@@ -17,7 +17,15 @@ function Password({ content }) {
 
   return (
     <Container>
-      <InputField type={pwType.type} placeholder={content} />
+      <InputField
+        type={pwType.type}
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={content}
+        required
+      />
 
       <EyeContainer>
         {pwType.visible ? (
