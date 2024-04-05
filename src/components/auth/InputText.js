@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useTheme } from "../../context/themeProvider";
 
 function InputText({ content, name, value, onChange }) {
+  const ThemeMode = useTheme();
+
   return (
     <Container>
       <InputField
@@ -11,6 +14,7 @@ function InputText({ content, name, value, onChange }) {
         placeholder={content}
         onChange={onChange}
         required
+        theme={ThemeMode[0]}
       />
     </Container>
   );
@@ -29,6 +33,8 @@ const InputField = styled.input`
   border-radius: 8px;
   border: 1px solid gray;
   font-size: 1rem;
+  background-color: transparent;
+  color: ${(props) => (props.theme === "light" ? "#000" : "#fff")};
 `;
 
 export default InputText;
