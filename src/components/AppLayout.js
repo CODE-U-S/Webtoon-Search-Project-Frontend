@@ -1,20 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useTheme } from '../context/themeProvider';
-import { FlexContainer } from '../style/styles';
-import Header from './Header';
+import React from "react";
+import styled from "styled-components";
+import { useTheme } from "../context/themeProvider";
+import { FlexContainer } from "../style/styles";
+import Header from "./Header";
 
 const AppLayout = ({ children }) => {
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <WrapContainer>
       <Header />
-      <ButtonContainer>
-        {children}
-      </ButtonContainer>
+      <ButtonContainer>{children}</ButtonContainer>
     </WrapContainer>
   );
-}
+};
 
 export default AppLayout;
 
@@ -32,4 +30,3 @@ const ButtonContainer = styled.div`
     margin: 10px; /* 각 버튼 주변에 공백 추가 */
   }
 `;
-
