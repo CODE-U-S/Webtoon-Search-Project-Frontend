@@ -3,7 +3,12 @@ import styled from "styled-components";
 import AppLayout from "../components/AppLayout";
 import { Link, useParams } from "react-router-dom";
 import { useTheme } from "../context/themeProvider";
-import { IoMdHeart, IoIosHeartEmpty } from "react-icons/io";
+import {
+  IoMdHeart,
+  IoIosHeartEmpty,
+  IoIosStar,
+  IoIosStarOutline,
+} from "react-icons/io";
 
 const DetailPage = () => {
   const ThemeMode = useTheme();
@@ -50,32 +55,55 @@ const DetailPage = () => {
     setComment("");
   };
 
+  // 별점 컴포넌트
+  const StarRating = ({ rating }) => {
+    const filledStars = rating ? Math.round(rating) : 0; // 값이 있는 경우 별점에 따른 노란색 별 개수
+    return Array.from({ length: 5 }, (_, index) => {
+      const filled = index < filledStars;
+      return filled ? (
+        <IoIosStar size={"1.5vmin"} />
+      ) : (
+        <IoIosStarOutline size={"1.5vmin"} />
+      );
+    });
+  };
+
   return (
     <AppLayout>
       {webtoonInfo && (
-        <DetailContainer>
-          <ImageContainer>
+        <DetailContainer service={webtoonInfo.service}>
+          <ImageContainer service={webtoonInfo.service}>
+            <Link to="/">
+              <StyledButton theme={ThemeMode[0]}>&#60; home</StyledButton>
+            </Link>
             <StyledImage src={webtoonInfo.imageUrl} alt={webtoonInfo.title} />
           </ImageContainer>
           <InfoContainer>
-            <h2>{webtoonInfo.title}</h2>
-            <p>
-              <strong>작가:</strong> {webtoonInfo.author}
-            </p>
-            <p>
-              <strong>장르:</strong> {webtoonInfo.genre}
-            </p>
-            <p>
-              <strong>요일:</strong> {webtoonInfo.day}
-            </p>
-            <p>
-              <strong>서비스:</strong> {webtoonInfo.service}
-            </p>
-            <p>
-              <strong>평점:</strong> <StarRating rating={webtoonInfo.rating} />
-            </p>
-            <p>
-              <strong>링크:</strong>{" "}
+            <Title>
+              <Image src={`/images/${webtoonInfo.service}.svg`} />
+              {webtoonInfo.title}
+
+              {/* 좋아요 버튼 */}
+              <LikeButton liked={liked} onClick={handleLike}>
+                {liked ? (
+                  <IoMdHeart size={30} />
+                ) : (
+                  <IoIosHeartEmpty
+                    size={30}
+                    color={ThemeMode[0] == "light" ? "black" : "white"}
+                  />
+                )}
+              </LikeButton>
+            </Title>
+            <Info>작가:{webtoonInfo.author}</Info>
+            <Info>장르:{webtoonInfo.genre}</Info>
+            <Info>요일:{webtoonInfo.day}</Info>
+            <Info>
+              평점:
+              <StarRating rating={webtoonInfo.rating} />
+            </Info>
+            <Info>
+              링크:
               <a
                 href={webtoonInfo.href}
                 target="_blank"
@@ -83,50 +111,60 @@ const DetailPage = () => {
               >
                 {webtoonInfo.href}
               </a>
-            </p>
-            {/* 좋아요 버튼 */}
-            <LikeButton liked={liked} onClick={handleLike}>
-              {liked ? <IoMdHeart /> : <IoIosHeartEmpty />}
-            </LikeButton>
+            </Info>
+
+            <CommentComponent>
+              <CommentSection theme={ThemeMode[0]}>
+                <h3>댓글</h3>
+                <CommentForm onSubmit={handleSubmitComment}>
+                  <TextArea
+                    value={comment}
+                    onChange={handleCommentChange}
+                    placeholder="댓글을 입력해주세요..."
+                    rows={4}
+                    theme={ThemeMode[0]}
+                  />
+                  <SubmitButton theme={ThemeMode[0]} type="submit">
+                    댓글 작성 &#62;
+                  </SubmitButton>
+                </CommentForm>
+                {/* 댓글 목록 */}
+                {/* 댓글 목록이 있다면 여기에 표시 */}
+              </CommentSection>
+            </CommentComponent>
           </InfoContainer>
         </DetailContainer>
       )}
       {!webtoonInfo && <p>웹툰 정보를 불러오는 중입니다...</p>}
-      <CommentSection>
-        <h3>댓글</h3>
-        <CommentForm onSubmit={handleSubmitComment}>
-          <textarea
-            value={comment}
-            onChange={handleCommentChange}
-            placeholder="댓글을 입력해주세요..."
-            rows={4}
-          />
-          <SubmitButton type="submit">댓글 작성</SubmitButton>
-        </CommentForm>
-        {/* 댓글 목록 */}
-        {/* 댓글 목록이 있다면 여기에 표시 */}
-      </CommentSection>
-      <Link to="/">
-        <StyledButton theme={ThemeMode[0]}>홈으로 돌아가기</StyledButton>
-      </Link>
     </AppLayout>
   );
 };
 
 export default DetailPage;
 
+const Info = styled.p`
+  margin-top: 2vmin;
+`;
+
 const StyledButton = styled.button`
-  width: 240px;
-  height: 56px;
+  width: 24vmin;
+  height: 5.6vmin;
   border-radius: 4px;
-  border: ${(props) =>
-    props.theme === "light" ? "1px solid #31302E" : "1px solid #bbb"};
   color: ${(props) => (props.theme === "light" ? "#31302E" : "#bbb")};
+  font-size: 3vmin;
+  margin-bottom: 4vmin;
+  margin-left: -4vmin;
 `;
 
 const StyledImage = styled.img`
-  max-width: 100%;
+  max-width: 150%;
   height: auto;
+  margin-left: 1vmin;
+`;
+
+const Image = styled.img`
+  width: 3vmin;
+  margin-right: 1vmin;
 `;
 
 const LikeButton = styled.button`
@@ -136,52 +174,64 @@ const LikeButton = styled.button`
   cursor: pointer;
   outline: none;
   color: ${(props) => (props.liked ? "red" : "black")};
-`;
-
-// 별점 컴포넌트
-const StarRating = ({ rating }) => {
-  const filledStars = rating ? Math.round(rating) : 0; // 값이 있는 경우 별점에 따른 노란색 별 개수
-  const stars = Array.from({ length: 5 }, (_, index) => {
-    const filled = index < filledStars;
-    return <Star key={index} filled={filled} />;
-  });
-
-  return <div>{stars}</div>;
-};
-
-const Star = styled.span`
-  color: ${(props) => (props.filled ? "yellow" : "grey")};
+  margin-top: 0.5vmin;
 `;
 
 const DetailContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-left: 30vmin;
+  margin-top: ${(service) =>
+    service.service == "mrblue"
+      ? "15vmin"
+      : service.service == "kakao"
+      ? "9vmin"
+      : "3vmin"};
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
-  margin-right: 20px;
+  flex: ${(service) => (service == "kakao" ? 2 : 1.5)};
 `;
 
 const InfoContainer = styled.div`
   flex: 3;
+  margin-left: 30vmin;
 `;
 
 const CommentSection = styled.div`
-  padding: 8px 32px 8px 8px;
-  border: 1px solid #ccc;
+  width: 50vmin;
   border-radius: 10px;
   background-color: transparent;
   flex: 1;
-  color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
+  color: ${({ theme }) => (theme === "dark" ? "white" : "black")};
 `;
 
 const CommentForm = styled.form`
   display: flex;
   flex-direction: column;
+  margin-left: -1vmin;
 `;
 
 const SubmitButton = styled.button`
   align-self: flex-end;
-  margin-top: 10px;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "black")};
+  margin-top: 1vmin;
+`;
+
+const Title = styled.h1`
+  display: inline-flex;
+  font-size: 3vmin;
+  font-weight: 800;
+`;
+
+const CommentComponent = styled.div`
+  margin-top: 4vmin;
+`;
+
+const TextArea = styled.textarea`
+  background-color: transparent;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "black")};
+  border: 1px solid ${({ theme }) => (theme === "dark" ? "white" : "black")};
+  margin: 1vmin;
+  padding: 2vmin;
 `;
