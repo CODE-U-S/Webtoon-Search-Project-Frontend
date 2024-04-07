@@ -9,7 +9,7 @@ import Signup from "./pages/auth/Signup";
 import DetailPage from "./pages/DetailPage";
 
 // WebToon
-import MrBlue from "./pages/webtoon/mrblue";
+import MrBlue from "./pages/webtoon/MrBlue";
 import AnyToon from "./pages/webtoon/AnyToon";
 import RidiBooks from "./pages/webtoon/RidiBooks";
 import Naver from "./pages/webtoon/Naver";
