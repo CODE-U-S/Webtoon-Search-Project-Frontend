@@ -9,6 +9,8 @@ import {
   IoIosStar,
   IoIosStarOutline,
 } from "react-icons/io";
+import Rating from "../components/Rating";
+import axios from "axios";
 
 const DetailPage = () => {
   const ThemeMode = useTheme();
@@ -43,16 +45,40 @@ const DetailPage = () => {
     setLiked(!liked);
   };
 
-  const handleCommentChange = (event) => {
-    setComment(event.target.value);
+  const [formData, setFormData] = useState({
+    title: "",
+    rating: 0,
+    user_id: localStorage.getItem("userId"),
+    comment: "",
+  });
+
+  const handleSubmitComment = async (event) => {
+    console.log(formData);
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://54.180.24.174:3000/review/write",
+        formData
+      );
+    } catch (error) {}
+
+    setComment("");
   };
 
-  const handleSubmitComment = (event) => {
-    event.preventDefault();
-    // 댓글을 처리하는 함수 작성
-    console.log("Submitted comment:", comment);
-    // 댓글 입력 후 초기화
-    setComment("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const ratingChange = (rating) => {
+    setFormData({
+      ...formData,
+      rating: rating,
+    });
   };
 
   // 별점 컴포넌트
@@ -115,16 +141,25 @@ const DetailPage = () => {
 
             <CommentComponent>
               <CommentSection theme={ThemeMode[0]}>
-                <h3>댓글</h3>
+                <h3>
+                  댓글 <Rating ratingChange={ratingChange} />{" "}
+                </h3>
                 <CommentForm onSubmit={handleSubmitComment}>
                   <TextArea
-                    value={comment}
-                    onChange={handleCommentChange}
+                    name={"comment"}
+                    value={formData.comment}
+                    onChange={handleChange}
                     placeholder="댓글을 입력해주세요..."
                     rows={4}
                     theme={ThemeMode[0]}
                   />
-                  <SubmitButton theme={ThemeMode[0]} type="submit">
+                  <SubmitButton
+                    theme={ThemeMode[0]}
+                    type="submit"
+                    name="title"
+                    value={webtoonInfo.title}
+                    onClick={handleChange}
+                  >
                     댓글 작성 &#62;
                   </SubmitButton>
                 </CommentForm>
